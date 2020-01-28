@@ -1,13 +1,14 @@
 <ul class="list-group">
   {% for game in games %}
   <li class="list-group-item">
-    {{ game.time }} <br />
-    {{ game.home_team }} vs. {{ game.away_team }} <br />
+    <p>{{ game.time }}</p>
+    <h5 class="bigga">{{ game.home_team }} vs. {{ game.away_team }} </h5>
     {% if game.status == GameStatus.completed %}
-    <span class="label label-success">Completed</span>
+    <h5 class="bigga"><span class="label label-success">Completed</span> <span class="minitext pull-right">Downloaded in {{(game.download_end - game.download_start).seconds // 60}} minutes</span></h5>
     {% else %}
-    <span class="label label-info">{{ game.status.value }}</span>
-    {% endif %} {% if game.status == GameStatus.downloading %}
+    <h5 class="bigga"><span class="label label-info">{{ game.status.value }}</span></h5>
+    {% endif %}
+    {% if game.status == GameStatus.downloading %}
     <br />
     <br />
     <div class="progress">

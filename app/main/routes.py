@@ -11,6 +11,6 @@ def index():
 
 @bp.route("/ajax")
 def ajax():
-    data = db.session.query(DbGame).all()
+    data = db.session.query(DbGame).order_by(DbGame.time.desc()).limit(10)
     return render_template("ajax.html", games=data, GameStatus=GameStatus)
 

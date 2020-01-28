@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block app_content %}
+<a class="hidden ajaxurl" id="ajaxurl" href="{{url_for('main.ajax')}}">/ajax</a>
+
+  <div class="col-md-12">
+    <div class="row">
+      <p class="lastupdate pull-left"></p>
+    </div>
+    <div class="row status">
+    </div>
+    <div class="row">
+    </div>
+  </div>
+
+<script>
+  var url = $('.ajaxurl').attr('href');
+  function getData() {
+    $.get({
+      url: $('.ajaxurl').attr('href'),
+      type: 'get',
+      success: function (data) {
+        $('.status').html(data);
+      }
+    });
+  };
+  getData();
+  setInterval(getData, 60000);
+</script>
+{% endblock %}

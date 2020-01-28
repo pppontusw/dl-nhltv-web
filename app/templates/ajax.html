@@ -1,0 +1,11 @@
+<ul class="list-group">
+  {% for game in games %}
+  <li class="list-group-item">
+    {{ game.game_info }}
+    {% if game.status == GameStatus.completed %}
+    <span class="label label-success pull-right">Completed</span>
+    {% else %}
+    <span class="label label-info pull-right">{{ game.status.value }}</span>
+    {% endif %} {% endfor %}
+  </li>
+</ul>

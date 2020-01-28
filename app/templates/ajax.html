@@ -7,6 +7,23 @@
     <span class="label label-success">Completed</span>
     {% else %}
     <span class="label label-info">{{ game.status.value }}</span>
+    {% endif %} {% if game.status == GameStatus.downloading %}
+    <br />
+    <br />
+    <div class="progress">
+      <div
+        class="progress-bar progress-bar-striped active"
+        role="progressbar"
+        aria-valuenow="{{ game.current_operation_progress }}"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        style="width: {{ game.current_operation_progress }}%;"
+      >
+        <span class="sr-only"
+          >{{ game.current_operation_progress }}% Complete</span
+        >
+      </div>
+    </div>
     {% endif %} {% endfor %}
   </li>
 </ul>

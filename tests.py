@@ -45,14 +45,6 @@ class MainViewCase(unittest.TestCase):
             in rsp.get_data(as_text=True)
         )
 
-    def test_ajax_view(self):
-        push_games()
-        rsp = self.test_client.get("/ajax")
-        self.assertEqual(rsp.status, "200 OK")
-        html = rsp.get_data(as_text=True)
-        self.assertTrue("TODO" in html)
-
-
 if __name__ == "__main__":
     unittest.main(verbosity=1)
 

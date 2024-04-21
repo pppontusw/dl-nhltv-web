@@ -10,4 +10,4 @@ Then set the DATABASE_URL to the path to your nhltv database (will be in your ta
 download folder) `EXPORT DATABASE_URL=sqlite:////path/to/download/folder/nhltv_database`
 
 After that you can run the application with `python run.py` and the web interface will
-respond at http://*ipaddress*:5000
+respond at http://*ipaddress*:3000

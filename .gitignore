@@ -17,3 +17,4 @@ logs/
 alembic.ini
 .env*
 alembic-dev.ini
+.venv
